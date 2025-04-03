@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetValues:
   - Planet: 0
-    Ground: {fileID: 0}
-    Skybox: {fileID: 0}
+    Ground: {fileID: 2100000, guid: e6c6f4b180311104889e2dc022a33b8c, type: 2}
+    Skybox: {fileID: 2100000, guid: bcf995f814a34fb45aeae4c2fdee896a, type: 2}
   - Planet: 1
     Ground: {fileID: 2100000, guid: a2d1980190f114540a25f16e8ae419ef, type: 2}
     Skybox: {fileID: 2100000, guid: e5ec7c84f4e65ea479feb2b44be2a38c, type: 2}
   - Planet: 2
-    Ground: {fileID: 0}
-    Skybox: {fileID: 0}
+    Ground: {fileID: 2100000, guid: 2567ef43002060d4daaf2909547e7947, type: 2}
+    Skybox: {fileID: 2100000, guid: 705beb429c7fd3347864695eeabd6adf, type: 2}
   - Planet: 3
-    Ground: {fileID: 0}
-    Skybox: {fileID: 0}
+    Ground: {fileID: 2100000, guid: de66be607fe1f9b489e9a328bce8b815, type: 2}
+    Skybox: {fileID: 2100000, guid: c140309294b1b214b877595d6629d605, type: 2}
   - Planet: 4
     Ground: {fileID: 0}
-    Skybox: {fileID: 0}
+    Skybox: {fileID: 2100000, guid: be01bdd5af1b4174cbade8babaaf5f51, type: 2}
   - Planet: 5
-    Ground: {fileID: 0}
-    Skybox: {fileID: 0}
+    Ground: {fileID: 2100000, guid: 4fa8930b51015c54fa4d82ddc3fc0776, type: 2}
+    Skybox: {fileID: 2100000, guid: 95a6b59d207284344803d6ce5923086a, type: 2}
   - Planet: 6
-    Ground: {fileID: 0}
-    Skybox: {fileID: 0}
+    Ground: {fileID: 2100000, guid: a8383d00d287e9a4e8baa81258010f34, type: 2}
+    Skybox: {fileID: 2100000, guid: 264729e8473a9d94b9f8a881b886bceb, type: 2}
   - Planet: 7
-    Ground: {fileID: 0}
-    Skybox: {fileID: 0}
+    Ground: {fileID: 2100000, guid: 48fe1d92f01c2e14f8c50776bfc893ca, type: 2}
+    Skybox: {fileID: 2100000, guid: 30c973b3620927e42a7675785da43d8b, type: 2}
