@@ -26,7 +26,7 @@ MonoBehaviour:
     Ground: {fileID: 2100000, guid: de66be607fe1f9b489e9a328bce8b815, type: 2}
     Skybox: {fileID: 2100000, guid: c140309294b1b214b877595d6629d605, type: 2}
   - Planet: 4
-    Ground: {fileID: 0}
+    Ground: {fileID: 2100000, guid: 2dd70a538f2298f4891828b6158ec366, type: 2}
     Skybox: {fileID: 2100000, guid: be01bdd5af1b4174cbade8babaaf5f51, type: 2}
   - Planet: 5
     Ground: {fileID: 2100000, guid: 4fa8930b51015c54fa4d82ddc3fc0776, type: 2}
