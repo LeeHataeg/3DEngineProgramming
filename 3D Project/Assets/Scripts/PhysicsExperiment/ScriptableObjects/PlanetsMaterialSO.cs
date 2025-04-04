@@ -4,18 +4,6 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
 
-public enum PlanetType
-{
-    Mercury,
-    Venus,
-    Earth,
-    Mars,
-    Jupiter,
-    Saturn,
-    Uranus,
-    Neptune
-}
-
 [System.Serializable]
 public class PlanetMeterials
 {
