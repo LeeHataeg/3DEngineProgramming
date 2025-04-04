@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Materials
+  m_EditorClassIdentifier: 
+  m_GroupName: Materials
+  m_GUID: a54a595c059b88548ac99fd77c75f1db
+  m_SerializeEntries:
+  - m_GUID: 2567ef43002060d4daaf2909547e7947
+    m_Address: Material_Ground_Earth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 264729e8473a9d94b9f8a881b886bceb
+    m_Address: Skybox_ Uranus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skybox
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dd70a538f2298f4891828b6158ec366
+    m_Address: Material_Ground_ Jupiter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30c973b3620927e42a7675785da43d8b
+    m_Address: Skybox_ Neptune
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skybox
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48fe1d92f01c2e14f8c50776bfc893ca
+    m_Address: Material_Ground_ Neptune
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fa8930b51015c54fa4d82ddc3fc0776
+    m_Address: Material_Ground_ Saturn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 705beb429c7fd3347864695eeabd6adf
+    m_Address: Skybox_ Earth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skybox
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95a6b59d207284344803d6ce5923086a
+    m_Address: Skybox_ Saturn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skybox
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2d1980190f114540a25f16e8ae419ef
+    m_Address: Material_Ground_Venus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8383d00d287e9a4e8baa81258010f34
+    m_Address: Material_Ground_ Uranus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcf995f814a34fb45aeae4c2fdee896a
+    m_Address: Skybox_ Mercury
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skybox
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be01bdd5af1b4174cbade8babaaf5f51
+    m_Address: Skybox_ Jupiter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skybox
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c140309294b1b214b877595d6629d605
+    m_Address: Skybox_ Mars
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skybox
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de66be607fe1f9b489e9a328bce8b815
+    m_Address: Material_Ground_Mars
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5ec7c84f4e65ea479feb2b44be2a38c
+    m_Address: Skybox_Venus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skybox
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6c6f4b180311104889e2dc022a33b8c
+    m_Address: Material_Ground_ Mercury
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ff9bb55e6ba4a0249b9d8a0f68443bf5, type: 2}
+  m_SchemaSet:
+    m_Schemas: []

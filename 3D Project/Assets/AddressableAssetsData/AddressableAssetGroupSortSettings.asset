@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea69d41f90c6ea4fa55c27c1d60c145, type: 3}
   m_Name: AddressableAssetGroupSortSettings
   m_EditorClassIdentifier: 
-  sortOrder: []
+  sortOrder:
+  - a54a595c059b88548ac99fd77c75f1db
+  - 78af914bcf366d64fb701f390ea4b212
+  - 6a04fc02a98cf9b458f1e4c34833e01c
