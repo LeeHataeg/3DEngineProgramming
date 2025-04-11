@@ -10,13 +10,11 @@ public class ExperimentController : MonoBehaviour
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private PlanetInfoSO planetInfoSO; // gravity, air ... etc ...
 
+    // TODO - 이 코드도 ExperimentUI.cs 등 UI 관련 코드로 옮겨갈 예정
     [Header("USER_INTERACTION")]
     [SerializeField] private Button startBtn;
     [SerializeField] private Button resetBtn;
     [SerializeField] private Button stopBtn;
-
-    private Vector3 originPos;
-    private Vector3 externalForce;
 
     private void Awake()
     {
@@ -34,7 +32,8 @@ public class ExperimentController : MonoBehaviour
         //m_secondButton.onClick.AddListener(delegate { Debug.Log("clicked second button"); });
         //m_thirdButton.onClick.AddListener(OnClickButton);
 
-        //temp
+        //temp - 임시 값
+        curExperiment = new FreeFallExperiment(PlanetType.Earth);
         StartExperiment(PlanetType.Earth);
     }
 
@@ -43,11 +42,10 @@ public class ExperimentController : MonoBehaviour
         //
     }
 
+    // TODO - planettype이 아니라 planetSO의 데이터를 넘겨줄 듯?
     public void StartExperiment(PlanetType planetType)
     {
         // User Input
-        curExperiment = new FreeFallExperiment(planetType);
+        curExperiment.StartExperiment();
     }
-
-    //
 }

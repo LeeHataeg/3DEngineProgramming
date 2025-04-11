@@ -21,7 +21,7 @@ public class PlanetInfo
     public PlanetType Planet;
     public string PlanetName;
 
-    public double distance; // From Sun
+    public double distance; // From Sundd
 
     public float Gravity;
     public float AirPressure;

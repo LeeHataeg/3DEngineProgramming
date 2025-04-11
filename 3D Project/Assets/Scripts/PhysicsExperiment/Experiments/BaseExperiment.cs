@@ -17,7 +17,9 @@ public abstract class BaseExperiment : IExperiment
     public void SetExperiment(Vector3 pos, Vector3 externalForce)
     {
         // I'll change this object into assets(like ball)
-        GameObject target = new GameObject("target");
+        GameObject target = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        target.name = "target";
+        
         rigid = target.AddComponent<Rigidbody>();
         rigid.useGravity = false;
 
