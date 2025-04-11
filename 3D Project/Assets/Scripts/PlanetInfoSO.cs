@@ -11,7 +11,8 @@ public enum PlanetType
     Jupiter,
     Saturn,
     Uranus,
-    Neptune
+    Neptune,
+    Others
 }
 
 [System.Serializable]
@@ -19,13 +20,15 @@ public class PlanetInfo
 {
     public PlanetType Planet;
     public string PlanetName;
+
+    public double distance; // From Sun
+
     public float Gravity;
     public float AirPressure;
     public float AirDensity;
-    public float SurfaceFriction;
 }
 [CreateAssetMenu(fileName = "PlanetPhysicalInfoSO", menuName = "Scriptable Objects/PlanetPhysicalInfoSO")]
-public class PlanetPhysicalInfoSO : ScriptableObject
+public class PlanetInfoSO : ScriptableObject
 {
     public List<PlanetInfo> planetValues;
 

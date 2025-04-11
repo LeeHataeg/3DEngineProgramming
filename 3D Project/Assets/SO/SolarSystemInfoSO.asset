@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea69d41f90c6ea4fa55c27c1d60c145, type: 3}
-  m_Name: AddressableAssetGroupSortSettings
+  m_Script: {fileID: 11500000, guid: 2807bb49dd8dc16479849d9aabafdb5f, type: 3}
+  m_Name: SolarSystemInfoSO
   m_EditorClassIdentifier: 
-  sortOrder:
-  - 6a04fc02a98cf9b458f1e4c34833e01c
-  - a54a595c059b88548ac99fd77c75f1db
+  planetValues:
+  - Planet: 0
+    PlanetName: 
+    distance: 0
+    Gravity: 0
+    AirPressure: 0
+    AirDensity: 0
