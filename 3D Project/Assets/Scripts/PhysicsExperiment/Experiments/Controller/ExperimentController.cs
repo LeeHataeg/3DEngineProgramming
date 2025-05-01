@@ -13,8 +13,11 @@ public class ExperimentController : MonoBehaviour
 {
     public static ExperimentController Instance;
 
+    [Header("MODELS")]
+    [SerializeField] private PlanetInfoSO planetSO;
+
     [Header("VIEWS")]
-    [SerializeField]PlanetEnvironmentView environmentView;
+    [SerializeField] private PlanetEnvironmentView environmentView;
 
     [Header("EXPERIMENT_INFO")]
     private IExperiment curExperiment;

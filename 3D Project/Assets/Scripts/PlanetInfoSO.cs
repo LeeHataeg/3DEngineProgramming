@@ -19,12 +19,14 @@ public enum PlanetType
 public class PlanetInfo
 {
     public PlanetType Planet;
-    public string PlanetName;
+    public string PlanetName;   // ? 한글 이름?
 
+    // For Rotate
     public double distance; // From Sundd
-
-    public float Gravity;
     public float AirPressure;
+
+    // For Experiment
+    public float GravityAccel;
     public float AirDensity;
 }
 [CreateAssetMenu(fileName = "PlanetPhysicalInfoSO", menuName = "Scriptable Objects/PlanetPhysicalInfoSO")]
