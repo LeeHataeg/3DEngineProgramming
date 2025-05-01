@@ -14,8 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetValues:
   - Planet: 0
-    PlanetName: 
-    distance: 0
-    Gravity: 0
+    PlanetName: "\uC218\uC131"
+    distance: 57.9
     AirPressure: 0
+    GravityAccel: 3.7
     AirDensity: 0
+  - Planet: 1
+    PlanetName: "\uAE08\uC131"
+    distance: 108.2
+    AirPressure: 92
+    GravityAccel: 8.87
+    AirDensity: 65
+  - Planet: 2
+    PlanetName: "\uC9C0\uAD6C"
+    distance: 149.6
+    AirPressure: 1
+    GravityAccel: 9.81
+    AirDensity: 1.225
+  - Planet: 3
+    PlanetName: "\uD654\uC131"
+    distance: 227.9
+    AirPressure: 0.006
+    GravityAccel: 3.71
+    AirDensity: 0.02
+  - Planet: 4
+    PlanetName: "\uBAA9\uC131"
+    distance: 778.3
+    AirPressure: 2960000
+    GravityAccel: 24.79
+    AirDensity: 7
+  - Planet: 5
+    PlanetName: "\uD1A0\uC131"
+    distance: 1427
+    AirPressure: 986
+    GravityAccel: 10.44
+    AirDensity: 0.35
+  - Planet: 6
+    PlanetName: "\uCC9C\uC655\uC131"
+    distance: 2871
+    AirPressure: 98.6
+    GravityAccel: 8.69
+    AirDensity: 0.42
+  - Planet: 7
+    PlanetName: "\uD574\uC655\uC131"
+    distance: 4497.1
+    AirPressure: 105.5
+    GravityAccel: 11.15
+    AirDensity: 0.45
