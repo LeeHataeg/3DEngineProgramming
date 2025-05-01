@@ -4,17 +4,18 @@ using UnityEngine;
 public class FreeFallExperiment : BaseExperiment
 {
     // temp -> this data will be moved in DataManager.cs
-    
+    PlanetType type;
 
-    public FreeFallExperiment(PlanetType planet) : base(planet) 
+    public FreeFallExperiment(PlanetType type) : base(type) 
     { 
         // TODO - fill this val
+        this.type = type;
         SetExperiment(new Vector3(0, 5.5f, 0), Vector3.zero);
     }
 
-    public override void StartExperiment()
+    public override void StartExperiment(PlanetType type)
     {
-        base.StartExperiment();
+        base.StartExperiment(type);
         // 선택된 행성의 중력을 사용해 자유 낙하 실험 초기화
     }
 

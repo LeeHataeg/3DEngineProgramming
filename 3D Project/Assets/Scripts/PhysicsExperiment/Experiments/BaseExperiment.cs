@@ -39,7 +39,7 @@ public abstract class BaseExperiment : IExperiment
         externalForce = force;
     }
 
-    public virtual void StartExperiment()
+    public virtual void StartExperiment(PlanetType planetType)
     {
         rigid.useGravity = true;
         rigid.transform.position = originPos;

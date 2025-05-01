@@ -1,12 +1,12 @@
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
-public class PlantEnvironmentLoader : MonoBehaviour
+public class PlanetEnvironmentView : MonoBehaviour
 {
-    // facade : 여기서 실행만 -> 서브 시스템에서 구현
+    [Header("OBJECTS_IN_SCENE")]
+    [SerializeField] Renderer[] grounds;
 
-    // TODO - button -> Input - PlanetType
     public void LoadEnvironment(PlanetType type)
     {
         // TODO - LoadScene? In here?
@@ -22,7 +22,7 @@ public class PlantEnvironmentLoader : MonoBehaviour
         Material groundMat = await AddressablesLoader.GetAssets<Material>(groundKey);
         Material skyboxMat = await AddressablesLoader.GetAssets<Material>(skyboxKey);
 
-        Apply();
+        Apply(groundMat, skyboxMat);
     }
     private string getGroundKey(PlanetType type)
     {
@@ -32,8 +32,12 @@ public class PlantEnvironmentLoader : MonoBehaviour
     {
         return $"Skybox_{type}";
     }
-    private void Apply()
+    private void Apply(Material gMat, Material sMat)
     {
-        // TODO : FUCK U
+        foreach (Renderer ground in grounds)
+        {
+            ground.material = gMat;
+        } 
+        RenderSettings.skybox = sMat;
     }
 }

@@ -1,14 +1,25 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum ExperimentType
+{
+    freeFall,   // 자유 낙하 운동
+    parabola    // 포물선 운동
+}
 
 public class ExperimentController : MonoBehaviour
 {
     public static ExperimentController Instance;
 
+    [Header("VIEWS")]
+    [SerializeField]PlanetEnvironmentView environmentView;
+
     [Header("EXPERIMENT_INFO")]
     private IExperiment curExperiment;
-    [SerializeField] private Rigidbody rigid;
-    [SerializeField] private PlanetInfoSO planetInfoSO; // gravity, air ... etc ...
+    private PlanetType type;
+    private FreeFallExperiment freeFall;
 
     // TODO - 이 코드도 ExperimentUI.cs 등 UI 관련 코드로 옮겨갈 예정
     [Header("USER_INTERACTION")]
@@ -18,7 +29,7 @@ public class ExperimentController : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
             Instance = new ExperimentController();
         else
             Destroy(Instance);
@@ -33,19 +44,36 @@ public class ExperimentController : MonoBehaviour
         //m_thirdButton.onClick.AddListener(OnClickButton);
 
         //temp - 임시 값
-        curExperiment = new FreeFallExperiment(PlanetType.Earth);
-        StartExperiment(PlanetType.Earth);
+        SetPlanet(PlanetType.Earth);
+        freeFall = new FreeFallExperiment(type);
+
+        curExperiment = freeFall;
+        StartExperiment(type);
+        environmentView.LoadEnvironment(type);
     }
 
-    public void SetExperiment()
+    public void SetExperiment(ExperimentType eType)
     {
-        //
+        switch (eType)
+        {
+            case ExperimentType.freeFall:
+                curExperiment = freeFall;
+                break;
+            case ExperimentType.parabola:
+                curExperiment = freeFall;
+                break;
+        }
     }
 
     // TODO - planettype이 아니라 planetSO의 데이터를 넘겨줄 듯?
     public void StartExperiment(PlanetType planetType)
     {
         // User Input
-        curExperiment.StartExperiment();
+        curExperiment.StartExperiment(type);
+    }
+
+    public void SetPlanet(PlanetType type)
+    {
+        this.type = type;
     }
 }
