@@ -18,50 +18,29 @@ public class ExperimentController : MonoBehaviour
     [Header("MODELS")]
     [SerializeField] private PlanetInfoSO planetSO;
 
+    private IExperiment curExperiment;
+    private PlanetType type;
+    private FreeFallExperiment freeFall;
+    private ParabolaExperiment parabola;
+
     [Header("VIEWS")]
     [SerializeField] private PlanetEnvironmentView environmentView;
     private TargetView targetView;
 
-    [Header("EXPERIMENT_INFO")]
-    private IExperiment curExperiment;
-    private PlanetType type;
-    private FreeFallExperiment freeFall;
-
     [Header("SETTING")]
-    private float startY = 6f;
+
     private float endY = 0.5f;
     private Vector3 offset;
     private Vector3 newPos;
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(Instance);
-    }
 
-    // 일단 자유 낙하 시켜버리도록 -> 행성의 여러 상수값 영향 구현 -> UI와 외부힘
-    void Start()
-    {
-        //temp - 임시 값
-        target = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
-        targetView = target.AddComponent<TargetView>();
-        targetView.SetTargetObject(target);
-        targetView.SetOriginPos(new Vector3(0, startY, 0));
-
-        freeFall = new FreeFallExperiment();
-        curExperiment = freeFall;
-
-        SetPlanet(planetSO.GetPlanetInfo(PlanetType.Earth));
-    }
     public void SetPlanet(PlanetInfo planet)
     {
         curExperiment.SetPlanetData(planet);
         type = planet.Planet;
         environmentView.LoadEnvironment(type);
     }
+
     public void SetExperiment(ExperimentType eType)
     {
         switch (eType)
@@ -75,18 +54,6 @@ public class ExperimentController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() 
-    {
-        switch (curExperiment.EType)
-        {
-            case ExperimentType.freeFall:
-                FreeFallRoop();
-                break;
-            case ExperimentType.parabola:
-                break;
-        }
-    }
-
     private void FreeFallRoop()
     {
         if (curExperiment == null || !enabled || targetView == null) return;
@@ -94,19 +61,78 @@ public class ExperimentController : MonoBehaviour
         time += Time.fixedDeltaTime;
 
         offset = curExperiment.UpdatePhysics(time);
-        newPos = new Vector3(0, startY, 0) + offset;
+        newPos = curExperiment.StartPos + offset;
 
         if (newPos.y <= endY)
         {
             newPos.y = endY;
             targetView.SetPosition(newPos);
-            // 이후 더 이상 FixedUpdate가 돌아가지 않도록 비활성화
             enabled = false;
-            Debug.Log("escape");
             return;
         }
 
-        // 정상 위치 업데이트
         targetView.SetPosition(newPos);
+    }
+
+    private void ParabolaRoop()
+    {
+        if (curExperiment == null || !enabled || targetView == null) return;
+
+        offset = curExperiment.UpdatePhysics(Time.fixedDeltaTime);
+        newPos = curExperiment.StartPos + offset;
+
+        if (newPos.y <= endY)
+        {
+            newPos.y = endY;
+            targetView.SetPosition(newPos);
+            enabled = false;
+            return;
+        }
+
+        targetView.SetPosition(newPos);
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(Instance);
+    }
+
+    // 일단 자유 낙하 시켜버리도록 -> 행성의 여러 상수값 영향 구현 -> UI와 외부힘
+    void Start()
+    {
+        freeFall = new FreeFallExperiment();
+        parabola = new ParabolaExperiment();
+        // temp : 초기 힘 외부 입력 -> 앵그리버드처럼? 드래그로?
+        parabola.SetExeternalForce(new Vector3(5000f, 5000f, 0f));
+
+        curExperiment = freeFall;
+
+        target = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+        targetView = target.AddComponent<TargetView>();
+        targetView.SetTargetObject(target);
+        targetView.SetOriginPos(curExperiment.StartPos);
+
+        SetPlanet(planetSO.GetPlanetInfo(PlanetType.Earth));
+    }
+
+    private void FixedUpdate()
+    {
+        switch (curExperiment.EType)
+        {
+            case ExperimentType.freeFall:
+                {
+                    FreeFallRoop();
+                    break;
+                }
+            case ExperimentType.parabola:
+                {
+                    ParabolaRoop();
+                    break;
+                }
+        }
     }
 }

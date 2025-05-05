@@ -43,10 +43,8 @@ public class PlanetInfoSO : ScriptableObject
 
     public void Init()
     {
-        // planetValues가 할당돼 있는지 확인(optional)
         if (planetValues == null || planetValues.Count == 0)
         {
-            Debug.LogWarning("PlanetInfoSO: planetValues가 비어있습니다.");
             return;
         }
         planetDictionary = planetValues.ToDictionary(p => p.Planet);

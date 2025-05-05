@@ -25,6 +25,5 @@ public class TargetView : MonoBehaviour
     public void SetPosition(Vector3 newPos)
     {
         trans.position = newPos;
-        Debug.Log(newPos);
     }
 }
