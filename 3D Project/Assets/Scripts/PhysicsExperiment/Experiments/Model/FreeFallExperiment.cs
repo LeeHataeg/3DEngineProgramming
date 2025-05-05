@@ -6,7 +6,8 @@ public class FreeFallExperiment : BaseExperiment
 {
     // Target관련 Model에서 질량과 단면적 항력 계수를 받아옴
     //  일단 Sphere로 가정하고 진행(차후 물체를 추가하며 작성하도록)
-    // Controller에서 행성 중력 가속도, 대기 밀도를 받아옴.
+    // Controller에서 행성 중력 가속도, 대기 밀도를 받아옴.=-
+
     float mass = 1f;
     float CrossSection = (float)(Math.PI * 0.5 * 0.5);
     float DragCoefficient = 0.47f; // 물체 특성에 따른 공기 저항력
@@ -14,27 +15,32 @@ public class FreeFallExperiment : BaseExperiment
     float gravityAccel;
     float airDense;
 
-    float vTerm;
+    float vTerm; // 종단 속도
     float tanhRes;
-    float velocity;
 
-    public void SetPlanetData(PlanetInfo info)
+    public FreeFallExperiment()
     {
-        gravityAccel = info.GravityAccel;
-        airDense = info.AirDensity;
+        experimentType = ExperimentType.freeFall;
     }
 
-    public override void UpdatePhysics(float dt)
+    public override void SetPlanetData(PlanetInfo type)
     {
-        velocity = GetVelocity(dt);
+        gravityAccel = type.GravityAccel;
+        airDense = type.AirDensity;
+        vTerm = Mathf.Sqrt((2f * mass * gravityAccel) / (airDense * DragCoefficient * CrossSection));
 
     }
 
-    private float GetVelocity(double time)
+    public override Vector3 UpdatePhysics(float time)
     {
-        vTerm = (float)Math.Sqrt((2 * mass * gravityAccel) / (airDense * DragCoefficient * CrossSection));\
-        tanhRes = (float)Math.Tanh(time);
+        float offset;
+        Vector3 vec;
 
-        return vTerm * tanhRes;
+        tanhRes = (float)Math.Tanh((gravityAccel * time) / vTerm);
+        offset = vTerm * vTerm / gravityAccel * Mathf.Log((float)Math.Cosh(gravityAccel * time / vTerm));
+
+        vec = new Vector3(0, offset * (-1), 0);
+
+        return vec;
     }
 }

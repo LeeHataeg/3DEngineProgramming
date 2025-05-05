@@ -2,13 +2,29 @@ using UnityEngine;
 
 public class TargetView : MonoBehaviour
 {
-    public void FixedUpdate()
+    private Transform trans;
+    private Vector3 originPos;
+
+    public void SetTargetObject(GameObject target)
     {
-        //FuckU
+        // change target Object
+        trans = target.transform;
     }
 
-    private void FreeFall()
+    public void ResetTarget()
     {
-        //
+        trans.position = originPos;
+    }
+
+    public void SetOriginPos(Vector3 pos)
+    {
+        originPos = pos;
+        SetPosition(originPos);
+    }
+
+    public void SetPosition(Vector3 newPos)
+    {
+        trans.position = newPos;
+        Debug.Log(newPos);
     }
 }

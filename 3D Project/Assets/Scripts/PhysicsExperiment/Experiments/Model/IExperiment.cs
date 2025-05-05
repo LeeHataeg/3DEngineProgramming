@@ -2,6 +2,9 @@ using UnityEngine;
 
 public interface IExperiment
 {
-    void UpdatePhysics(float dt);
+    ExperimentType EType { get; }
+
+    public void SetPlanetData(PlanetInfo type);
+    Vector3 UpdatePhysics(float dt);
     Vector3 CurrentPosition { get; }
 }

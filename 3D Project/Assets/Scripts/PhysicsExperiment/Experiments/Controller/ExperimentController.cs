@@ -12,28 +12,31 @@ public enum ExperimentType
 public class ExperimentController : MonoBehaviour
 {
     public static ExperimentController Instance;
+    private float time = 0f;
+    private GameObject target;
 
     [Header("MODELS")]
     [SerializeField] private PlanetInfoSO planetSO;
 
     [Header("VIEWS")]
     [SerializeField] private PlanetEnvironmentView environmentView;
+    private TargetView targetView;
 
     [Header("EXPERIMENT_INFO")]
     private IExperiment curExperiment;
     private PlanetType type;
     private FreeFallExperiment freeFall;
 
-    // TODO - 이 코드도 ExperimentUI.cs 등 UI 관련 코드로 옮겨갈 예정
-    [Header("USER_INTERACTION")]
-    [SerializeField] private Button startBtn;
-    [SerializeField] private Button resetBtn;
-    [SerializeField] private Button stopBtn;
+    [Header("SETTING")]
+    private float startY = 6f;
+    private float endY = 0.5f;
+    private Vector3 offset;
+    private Vector3 newPos;
 
     private void Awake()
     {
         if (Instance == null)
-            Instance = new ExperimentController();
+            Instance = this;
         else
             Destroy(Instance);
     }
@@ -41,20 +44,24 @@ public class ExperimentController : MonoBehaviour
     // 일단 자유 낙하 시켜버리도록 -> 행성의 여러 상수값 영향 구현 -> UI와 외부힘
     void Start()
     {
-        //m_firstButton.onClick.AddListener(OnClickButton);
-        //m_secondButton.onClick.AddListener(() => OnClickButtonWithParameters(2));
-        //m_secondButton.onClick.AddListener(delegate { Debug.Log("clicked second button"); });
-        //m_thirdButton.onClick.AddListener(OnClickButton);
-
         //temp - 임시 값
-        SetPlanet(PlanetType.Earth);
-        freeFall = new FreeFallExperiment(type);
+        target = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
+        targetView = target.AddComponent<TargetView>();
+        targetView.SetTargetObject(target);
+        targetView.SetOriginPos(new Vector3(0, startY, 0));
+
+        freeFall = new FreeFallExperiment();
         curExperiment = freeFall;
-        StartExperiment(type);
+
+        SetPlanet(planetSO.GetPlanetInfo(PlanetType.Earth));
+    }
+    public void SetPlanet(PlanetInfo planet)
+    {
+        curExperiment.SetPlanetData(planet);
+        type = planet.Planet;
         environmentView.LoadEnvironment(type);
     }
-
     public void SetExperiment(ExperimentType eType)
     {
         switch (eType)
@@ -68,15 +75,38 @@ public class ExperimentController : MonoBehaviour
         }
     }
 
-    // TODO - planettype이 아니라 planetSO의 데이터를 넘겨줄 듯?
-    public void StartExperiment(PlanetType planetType)
+    private void FixedUpdate() 
     {
-        // User Input
-        curExperiment.StartExperiment(type);
+        switch (curExperiment.EType)
+        {
+            case ExperimentType.freeFall:
+                FreeFallRoop();
+                break;
+            case ExperimentType.parabola:
+                break;
+        }
     }
 
-    public void SetPlanet(PlanetType type)
+    private void FreeFallRoop()
     {
-        this.type = type;
+        if (curExperiment == null || !enabled || targetView == null) return;
+
+        time += Time.fixedDeltaTime;
+
+        offset = curExperiment.UpdatePhysics(time);
+        newPos = new Vector3(0, startY, 0) + offset;
+
+        if (newPos.y <= endY)
+        {
+            newPos.y = endY;
+            targetView.SetPosition(newPos);
+            // 이후 더 이상 FixedUpdate가 돌아가지 않도록 비활성화
+            enabled = false;
+            Debug.Log("escape");
+            return;
+        }
+
+        // 정상 위치 업데이트
+        targetView.SetPosition(newPos);
     }
 }
