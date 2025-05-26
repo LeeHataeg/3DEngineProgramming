@@ -545,8 +545,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc850375e479704281543cbd286ad74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 737361424}
-  height: 500
+  moveSpeed: 50
+  zoomSpeed: 5000
+  rotationSpeed: 3
+  minHeight: 10
+  maxHeight: 500
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

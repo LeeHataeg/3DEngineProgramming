@@ -19,8 +19,8 @@ public class OrbitTrail : MonoBehaviour
         lineRenderer.startColor = Color.white;
         lineRenderer.endColor = Color.white;
 
-        lineRenderer.startWidth = 1f;
-        lineRenderer.endWidth = 1f;
+        lineRenderer.startWidth = 0.5f;
+        lineRenderer.endWidth = 0.5f;
         lineRenderer.useWorldSpace = true;
 
         // 첫 위치 등록
