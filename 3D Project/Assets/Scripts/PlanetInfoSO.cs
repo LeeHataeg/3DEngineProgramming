@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PlanetType
 {
-    Mercury,
+    ddd,
     Venus,
     Earth,
     Mars,
