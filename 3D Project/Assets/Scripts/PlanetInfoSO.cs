@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PlanetType
 {
-    ddd,
+    Mercury,
     Venus,
     Earth,
     Mars,
@@ -19,7 +19,7 @@ public enum PlanetType
 public class PlanetInfo
 {
     public PlanetType Planet;
-    public string PlanetName;   // ? ÇÑ±Û ÀÌ¸§?
+    public string PlanetName;   // ? ï¿½Ñ±ï¿½ ï¿½Ì¸ï¿½?
 
     // For Rotate
     public double distance; // From Sundd
