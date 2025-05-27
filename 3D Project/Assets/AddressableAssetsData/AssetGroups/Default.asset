@@ -14,22 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default
   m_GUID: 6a04fc02a98cf9b458f1e4c34833e01c
-  m_SerializeEntries:
-  - m_GUID: 2567ef43002060d4daaf2909547e7947
-    m_Address: Materials/Grounds/Material_Ground_Earth
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4fa8930b51015c54fa4d82ddc3fc0776
-    m_Address: Material_Ground_Saturn
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: de66be607fe1f9b489e9a328bce8b815
-    m_Address: Materials/Grounds/Material_Ground_Mars
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ff9bb55e6ba4a0249b9d8a0f68443bf5, type: 2}
   m_SchemaSet:
