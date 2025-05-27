@@ -19,16 +19,24 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        // WASD 이동
+        Vector3 forward = transform.forward;
+        Vector3 right = transform.right;
+
+        // 수평면(Y축 제거)
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(h, 0, v) * moveSpeed * Time.deltaTime;
-        transform.Translate(move, Space.World); // 월드 기준 이동
+        Vector3 move = (forward * v + right * h) * moveSpeed * Time.deltaTime;
+        transform.position += move;
 
         // 마우스 휠 줌
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        Vector3 zoom = transform.position + Vector3.down * scroll * zoomSpeed * Time.deltaTime;
+        Vector3 zoom = transform.position + transform.forward * scroll * zoomSpeed * Time.deltaTime;
 
         // 높이 제한 적용
         if (zoom.y >= minHeight && zoom.y <= maxHeight)
