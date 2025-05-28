@@ -42,7 +42,9 @@ public class DataManager
 [System.Serializable]
 public class SceneChangeManager
 {
-    public PlanetInfo PlanetInfo;
+    private PlanetInfo planetInfo = null;
+
+    public PlanetInfo PlanetInfo => planetInfo;
 
     public void SetPhysicsScene()
     {
@@ -51,13 +53,13 @@ public class SceneChangeManager
 
     public void SetPhysicsScene(PlanetInfo info)
     {
-        PlanetInfo = info;
+        planetInfo = info;
         SceneManager.LoadScene(Const.PhysicsScene);
     }
 
     public void SetMainScene()
     {
-        PlanetInfo = null;
+        planetInfo = null;
         SceneManager.LoadScene(Const.MainScene);
     }
 }

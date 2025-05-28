@@ -36,8 +36,21 @@ public class PlanetEnvironmentView : MonoBehaviour
     {
         foreach (Renderer ground in grounds)
         {
-            ground.material = gMat;
+            if (ground != null)
+            {
+                ground.material = gMat;
+            }
         } 
         RenderSettings.skybox = sMat;
+    }
+
+    private void Awake()
+    {
+        // 혹시라도 안 채워졌으면 동적으로 찾기
+        if (grounds == null || grounds.Length == 0)
+        {
+            GameObject groundsPar = Instantiate(Resources.Load<GameObject>("Prefabs/Ground"));
+            grounds = groundsPar.GetComponentsInChildren<Renderer>();
+        }
     }
 }
