@@ -15,6 +15,11 @@ public class ExperimentUIController : MonoBehaviour
 
     public void OnReplayClick()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.Instance.SceneChangeManager.SetPhysicsScene();
+    }
+
+    public void OnExitClick()
+    {
+        GameManager.Instance.SceneChangeManager.SetMainScene();
     }
 }
