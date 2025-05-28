@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // This script Manages Operation of Game
-    // Like Game Cycle( Gamestart,  etc )
     private volatile static GameManager instance;
+
+    public DataManager DataManager;
+    public SceneChangeManager SceneChangeManager;
 
     public static GameManager Instance
     {
         get
         {
-            //TODO - Add details
             return instance;
         }
     }
@@ -27,5 +28,36 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+
+}
+
+[System.Serializable]
+public class DataManager
+{
+    public PlanetInfoSO PlanetInfoSO;
+}
+
+[System.Serializable]
+public class SceneChangeManager
+{
+    public PlanetInfo PlanetInfo;
+
+    public void SetPhysicsScene()
+    {
+        SceneManager.LoadScene(Const.PhysicsScene);
+    }
+
+    public void SetPhysicsScene(PlanetInfo info)
+    {
+        PlanetInfo = info;
+        SceneManager.LoadScene(Const.PhysicsScene);
+    }
+
+    public void SetMainScene()
+    {
+        PlanetInfo = null;
+        SceneManager.LoadScene(Const.MainScene);
     }
 }

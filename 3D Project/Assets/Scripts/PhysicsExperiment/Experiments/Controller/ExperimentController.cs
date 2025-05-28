@@ -34,10 +34,10 @@ public class ExperimentController : MonoBehaviour
     private Vector3 newPos;
 
 
-    public void SetPlanet(PlanetInfo planet)
+    private void SetPlanet()
     {
-        curExperiment.SetPlanetData(planet);
-        type = planet.Planet;
+        curExperiment.SetPlanetData(GameManager.Instance.SceneChangeManager.PlanetInfo);
+        type = GameManager.Instance.SceneChangeManager.PlanetInfo.Planet;
         environmentView.LoadEnvironment(type);
     }
 
@@ -54,6 +54,7 @@ public class ExperimentController : MonoBehaviour
         }
     }
 
+    #region Exp_Movement_Control
     private void FreeFallRoop()
     {
         if (curExperiment == null || !enabled || targetView == null) return;
@@ -91,6 +92,7 @@ public class ExperimentController : MonoBehaviour
 
         targetView.SetPosition(newPos);
     }
+    #endregion
 
     private void Awake()
     {
@@ -109,7 +111,7 @@ public class ExperimentController : MonoBehaviour
         // temp : 초기 힘 외부 입력 -> 앵그리버드처럼? 드래그로?
         parabola.SetExeternalForce(new Vector3(5000f, 5000f, 0f));
 
-        curExperiment = freeFall;
+        SetExperiment(ExperimentType.freeFall);
 
         // 떨어질 대상
         target = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -119,8 +121,7 @@ public class ExperimentController : MonoBehaviour
         targetView.SetTargetObject(target);
         targetView.SetOriginPos(curExperiment.StartPos);
 
-        // 행성 할당
-        SetPlanet(planetSO.GetPlanetInfo(PlanetType.Earth));
+        SetPlanet();
     }
 
     private void FixedUpdate()

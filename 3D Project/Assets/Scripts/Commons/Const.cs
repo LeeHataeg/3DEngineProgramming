@@ -2,7 +2,9 @@ using UnityEngine;
 
 public abstract class Const
 {
-    #region
+    #region SceneName
+    public const string PhysicsScene = "PhysicsScene";
+    public const string MainScene = "MainScene";
     #endregion
 
     #region Prefabs
