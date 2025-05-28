@@ -103,6 +103,7 @@ public class ExperimentController : MonoBehaviour
     // 일단 자유 낙하 시켜버리도록 -> 행성의 여러 상수값 영향 구현 -> UI와 외부힘
     void Start()
     {
+        // 실험들 초기화
         freeFall = new FreeFallExperiment();
         parabola = new ParabolaExperiment();
         // temp : 초기 힘 외부 입력 -> 앵그리버드처럼? 드래그로?
@@ -110,12 +111,15 @@ public class ExperimentController : MonoBehaviour
 
         curExperiment = freeFall;
 
+        // 떨어질 대상
         target = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
+        // 의 위치 정보 조작
         targetView = target.AddComponent<TargetView>();
         targetView.SetTargetObject(target);
         targetView.SetOriginPos(curExperiment.StartPos);
 
+        // 행성 할당
         SetPlanet(planetSO.GetPlanetInfo(PlanetType.Earth));
     }
 
