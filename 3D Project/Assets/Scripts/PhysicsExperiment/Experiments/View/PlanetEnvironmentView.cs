@@ -49,7 +49,7 @@ public class PlanetEnvironmentView : MonoBehaviour
         // 혹시라도 안 채워졌으면 동적으로 찾기
         if (grounds == null || grounds.Length == 0)
         {
-            GameObject groundsPar = Instantiate(Resources.Load<GameObject>("Prefabs/Ground"));
+            GameObject groundsPar = Instantiate(Resources.Load<GameObject>(Const.Prefabs_PhysicsGround));
             grounds = groundsPar.GetComponentsInChildren<Renderer>();
         }
     }

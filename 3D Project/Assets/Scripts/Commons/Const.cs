@@ -8,6 +8,6 @@ public abstract class Const
     #endregion
 
     #region Prefabs
-    public const string Temp = "temp";
+    public const string Prefabs_PhysicsGround = "Prefabs/Ground";
     #endregion
 }
