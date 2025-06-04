@@ -7,6 +7,8 @@ public class PlanetSelectionHandler : MonoBehaviour
 
     void OnMouseDown()
     {
-        GameManager.Instance.SceneChangeManager.SetPhysicsScene(GameManager.Instance.DataManager.PlanetInfoSO.GetPlanetInfo(planetType));
+        GameManager.Instance.SceneChangeManager.SetPhysicsScene(GameManager.Instance.DataManager.
+            PlanetInfoSO.GetPlanetInfo(planetType));
+        Time.timeScale = 1f;
     }
 }

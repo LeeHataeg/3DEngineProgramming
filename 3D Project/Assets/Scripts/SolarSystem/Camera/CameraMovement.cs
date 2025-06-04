@@ -2,18 +2,17 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float moveSpeed = 50f;          // 이동 속도
-    public float zoomSpeed = 5000f;         // 줌 속도 (마우스 휠)
-    public float rotationSpeed = 3f;        // 회전 속도
-    public float minHeight = 10f;          // 줌인 제한
-    public float maxHeight = 500f;         // 줌아웃 제한
+    public float moveSpeed = 50f;
+    public float zoomSpeed = 5000f;
+    public float rotationSpeed = 3f;
+    public float minHeight = 10f;
+    public float maxHeight = 500f;
 
     private float rotationX = 90f;
     private float rotationY = 0f;
 
     void Start()
     {
-        // 초기 수직 시점 고정
         transform.rotation = Quaternion.Euler(rotationX, rotationY, 0f);
     }
 
@@ -22,36 +21,35 @@ public class CameraMovement : MonoBehaviour
         Vector3 forward = transform.forward;
         Vector3 right = transform.right;
 
-        // 수평면(Y축 제거)
         forward.y = 0f;
         right.y = 0f;
         forward.Normalize();
         right.Normalize();
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        // 입력을 GetAxisRaw로 바꾸기 (시간 정지에 무관)
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
-        Vector3 move = (forward * v + right * h) * moveSpeed * Time.deltaTime;
+        Vector3 move = (forward * v + right * h) * moveSpeed * Time.unscaledDeltaTime;
         transform.position += move;
 
-        // 마우스 휠 줌
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        Vector3 zoom = transform.position + transform.forward * scroll * zoomSpeed * Time.deltaTime;
+        // 마우스 휠도 시간 무관하게 처리됨
+        float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+        Vector3 zoom = transform.position + transform.forward * scroll * zoomSpeed * Time.unscaledDeltaTime;
 
-        // 높이 제한 적용
         if (zoom.y >= minHeight && zoom.y <= maxHeight)
         {
             transform.position = zoom;
         }
 
-        if (Input.GetMouseButton(1)) // 오른쪽 클릭 누르고 있을 때
+        if (Input.GetMouseButton(1))
         {
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
+            float mouseX = Input.GetAxisRaw("Mouse X");
+            float mouseY = Input.GetAxisRaw("Mouse Y");
 
             rotationY += mouseX * rotationSpeed;
             rotationX -= mouseY * rotationSpeed;
-            rotationX = Mathf.Clamp(rotationX, 20f, 90f); // 시점 제한 (위아래)
+            rotationX = Mathf.Clamp(rotationX, 20f, 90f);
 
             transform.rotation = Quaternion.Euler(rotationX, rotationY, 0f);
         }

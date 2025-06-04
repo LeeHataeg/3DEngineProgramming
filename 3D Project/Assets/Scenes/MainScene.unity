@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b730bb824717d349a367f74c1d35bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPositions: 1000
+  maxPositions: 175
   positionUpdateInterval: 0.1
 --- !u!120 &36065718
 LineRenderer:
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b730bb824717d349a367f74c1d35bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPositions: 1000
+  maxPositions: 30
   positionUpdateInterval: 0.1
 --- !u!120 &459837411
 LineRenderer:
@@ -2079,7 +2079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b730bb824717d349a367f74c1d35bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPositions: 1000
+  maxPositions: 900
   positionUpdateInterval: 0.1
 --- !u!120 &654853699
 LineRenderer:
@@ -2460,7 +2460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b730bb824717d349a367f74c1d35bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPositions: 1000
+  maxPositions: 50
   positionUpdateInterval: 0.1
 --- !u!120 &674617089
 LineRenderer:
@@ -2721,6 +2721,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1229251971759408710, guid: 5f776740c447e45afb25edbca842de92, type: 3}
   m_PrefabInstance: {fileID: 737361419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &756194506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1628933999407032, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+  m_PrefabInstance: {fileID: 1612599166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &756194510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756194506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1fffd8b7f1110478570ed6c2ba31c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axialTilt: 26.7
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,7 +2955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b730bb824717d349a367f74c1d35bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPositions: 1000
+  maxPositions: 100
   positionUpdateInterval: 0.1
 --- !u!120 &977410954
 LineRenderer:
@@ -4016,7 +4034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b730bb824717d349a367f74c1d35bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPositions: 1000
+  maxPositions: 700
   positionUpdateInterval: 0.1
 --- !u!120 &1575790099
 LineRenderer:
@@ -4137,6 +4155,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Saturn
       objectReference: {fileID: 0}
+    - target: {fileID: 4277827671834268, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97297776
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277827671834268, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.23089886
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277827671834268, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277827671834268, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277827671834268, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 26.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277827671834268, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4677324220665258, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       propertyPath: m_LocalScale.x
       value: 6
@@ -4193,6 +4235,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 199907745297058340, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7568472841969023686, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       propertyPath: m_Radius
       value: 0.5
@@ -4209,13 +4255,16 @@ PrefabInstance:
       addedObject: {fileID: 1612599168}
     - targetCorrespondingSourceObject: {fileID: 1377197793697218, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1612599177}
-    - targetCorrespondingSourceObject: {fileID: 1377197793697218, guid: b4201d402613a4464b35c805dafcca62, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1612599179}
     - targetCorrespondingSourceObject: {fileID: 1377197793697218, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1612599178}
+    - targetCorrespondingSourceObject: {fileID: 1628933999407032, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 756194510}
+    - targetCorrespondingSourceObject: {fileID: 1167269392394980463, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1612599171}
   m_SourcePrefab: {fileID: 100100000, guid: b4201d402613a4464b35c805dafcca62, type: 3}
 --- !u!1 &1612599167 stripped
 GameObject:
@@ -4263,13 +4312,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1612599177
+--- !u!1 &1612599170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1167269392394980463, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+  m_PrefabInstance: {fileID: 1612599166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1612599171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612599167}
+  m_GameObject: {fileID: 1612599170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14936c40e92da134fb46cfe82fc765cb, type: 3}
@@ -4292,7 +4346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b730bb824717d349a367f74c1d35bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPositions: 1000
+  maxPositions: 600
   positionUpdateInterval: 0.1
 --- !u!120 &1612599179
 LineRenderer:
@@ -4568,7 +4622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b730bb824717d349a367f74c1d35bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPositions: 1000
+  maxPositions: 375
   positionUpdateInterval: 0.1
 --- !u!120 &1736086163
 LineRenderer:
