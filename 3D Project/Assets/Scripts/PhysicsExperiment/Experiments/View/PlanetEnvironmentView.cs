@@ -10,7 +10,9 @@ public class PlanetEnvironmentView : MonoBehaviour
     public void LoadEnvironment(PlanetType type)
     {
         // TODO - LoadScene? In here?
-        SetEnvironment(type);
+        //SetEnvironment(type);
+        GameObject tr = (GameObject)Resources.Load("Terrains/Terrain_Mercury");
+        Instantiate(tr);
     }
 
 
@@ -46,11 +48,11 @@ public class PlanetEnvironmentView : MonoBehaviour
 
     private void Awake()
     {
-        // 혹시라도 안 채워졌으면 동적으로 찾기
-        if (grounds == null || grounds.Length == 0)
-        {
-            GameObject groundsPar = Instantiate(Resources.Load<GameObject>(Const.Prefabs_PhysicsGround));
-            grounds = groundsPar.GetComponentsInChildren<Renderer>();
-        }
+        //// 혹시라도 안 채워졌으면 동적으로 찾기
+        //if (grounds == null || grounds.Length == 0)
+        //{
+        //    GameObject groundsPar = Instantiate(Resources.Load<GameObject>(Const.Prefabs_PhysicsGround));
+        //    grounds = groundsPar.GetComponentsInChildren<Renderer>();
+        //}
     }
 }

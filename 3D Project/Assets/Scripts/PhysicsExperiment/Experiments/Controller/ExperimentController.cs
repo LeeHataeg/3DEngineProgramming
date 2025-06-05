@@ -10,11 +10,20 @@ public enum ExperimentType
     parabola    // 포물선 운동
 }
 
+public enum TargetType
+{
+    Baseball,
+    Basketball,
+    Football,
+    Soccer,
+    Volleyball
+}
+
 public class ExperimentController : MonoBehaviour
 {
     public static ExperimentController Instance;
     private float time = 0f;
-    private GameObject target;
+    [SerializeField]private GameObject[] targets;
 
     [Header("MODELS")]
     [SerializeField] private PlanetInfoSO planetSO;
@@ -65,16 +74,12 @@ public class ExperimentController : MonoBehaviour
     }
 
     #region Target
-    private void SetTarget()
-    {
-        target = (GameObject)Resources.Load("Prefabs/Target");
-        CreateTarget();
-    }
 
     private void CreateTarget()
     {
-        Instantiate(target);
-        target.GetComponent<TargetView>().SetOriginPos(new Vector3(0, 6f, 0));
+        int num = Random.Range(0, 5);
+        GameObject target = Instantiate(targets[num]);
+        target.GetComponent<TargetView>().SetOriginPos(new Vector3(500, 25, 525));
     }
     #endregion
 
@@ -91,7 +96,7 @@ public class ExperimentController : MonoBehaviour
         SetExperiment();
         SelectExperiment(ExperimentType.freeFall);
 
-        SetTarget();
+        CreateTarget();
 
         SetPlanet();
     }
