@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public enum ExperimentType
 {
@@ -41,7 +42,16 @@ public class ExperimentController : MonoBehaviour
         environmentView.LoadEnvironment(type);
     }
 
-    public void SetExperiment(ExperimentType eType)
+    private void SetExperiment()
+    {
+        // 실험들 초기화
+        freeFall = new FreeFallExperiment();
+        parabola = new ParabolaExperiment();
+        // temp : 초기 힘 외부 입력 -> 앵그리버드처럼? 드래그로?
+        parabola.SetExeternalForce(new Vector3(5000f, 5000f, 0f));
+    }
+
+    public void SelectExperiment(ExperimentType eType)
     {
         switch (eType)
         {
@@ -54,43 +64,17 @@ public class ExperimentController : MonoBehaviour
         }
     }
 
-    #region Exp_Movement_Control
-    private void FreeFallRoop()
+    #region Target
+    private void SetTarget()
     {
-        if (curExperiment == null || !enabled || targetView == null) return;
-
-        time += Time.fixedDeltaTime;
-
-        offset = curExperiment.UpdatePhysics(time);
-        newPos = curExperiment.StartPos + offset;
-
-        if (newPos.y <= endY)
-        {
-            newPos.y = endY;
-            targetView.SetPosition(newPos);
-            enabled = false;
-            return;
-        }
-
-        targetView.SetPosition(newPos);
+        target = (GameObject)Resources.Load("Prefabs/Target");
+        CreateTarget();
     }
 
-    private void ParabolaRoop()
+    private void CreateTarget()
     {
-        if (curExperiment == null || !enabled || targetView == null) return;
-
-        offset = curExperiment.UpdatePhysics(Time.fixedDeltaTime);
-        newPos = curExperiment.StartPos + offset;
-
-        if (newPos.y <= endY)
-        {
-            newPos.y = endY;
-            targetView.SetPosition(newPos);
-            enabled = false;
-            return;
-        }
-
-        targetView.SetPosition(newPos);
+        Instantiate(target);
+        target.GetComponent<TargetView>().SetOriginPos(new Vector3(0, 6f, 0));
     }
     #endregion
 
@@ -102,42 +86,13 @@ public class ExperimentController : MonoBehaviour
             Destroy(Instance);
     }
 
-    // 일단 자유 낙하 시켜버리도록 -> 행성의 여러 상수값 영향 구현 -> UI와 외부힘
     void Start()
     {
-        // 실험들 초기화
-        freeFall = new FreeFallExperiment();
-        parabola = new ParabolaExperiment();
-        // temp : 초기 힘 외부 입력 -> 앵그리버드처럼? 드래그로?
-        parabola.SetExeternalForce(new Vector3(5000f, 5000f, 0f));
+        SetExperiment();
+        SelectExperiment(ExperimentType.freeFall);
 
-        SetExperiment(ExperimentType.freeFall);
-
-        // 떨어질 대상
-        target = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
-        // 의 위치 정보 조작
-        targetView = target.AddComponent<TargetView>();
-        targetView.SetTargetObject(target);
-        targetView.SetOriginPos(curExperiment.StartPos);
+        SetTarget();
 
         SetPlanet();
-    }
-
-    private void FixedUpdate()
-    {
-        switch (curExperiment.EType)
-        {
-            case ExperimentType.freeFall:
-                {
-                    FreeFallRoop();
-                    break;
-                }
-            case ExperimentType.parabola:
-                {
-                    ParabolaRoop();
-                    break;
-                }
-        }
     }
 }

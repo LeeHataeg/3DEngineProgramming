@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TargetView : MonoBehaviour
 {
-    private Transform trans;
+    [SerializeField] private Transform trans;
     private Vector3 originPos;
 
     public void SetTargetObject(GameObject target)

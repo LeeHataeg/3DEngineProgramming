@@ -48,6 +48,9 @@ public class SceneChangeManager
 
     public void SetPhysicsScene()
     {
+        //Default Setting
+        planetInfo = GameManager.Instance.DataManager.PlanetInfoSO.GetPlanetInfo(PlanetType.Mercury);
+
         SceneManager.LoadScene(Const.PhysicsScene);
     }
 
