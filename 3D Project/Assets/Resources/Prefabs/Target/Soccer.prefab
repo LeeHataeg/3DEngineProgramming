@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2500590450994664169}
   - component: {fileID: 2122188921205499710}
   - component: {fileID: 5132226074641011832}
-  - component: {fileID: 6068590002710035227}
   - component: {fileID: 7643481182391241421}
   - component: {fileID: 1747351117402041066}
   - component: {fileID: 2886171967364816818}
+  - component: {fileID: 5547325619233456924}
   m_Layer: 0
   m_Name: Soccer
   m_TagString: Untagged
@@ -90,28 +90,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6068590002710035227
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6205504764656836106}
-  m_Material: {fileID: 13400000, guid: 395d59d675afad64189678d7b187f7cb, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8209733089858529943, guid: c19c4d581da21544d8650aa084ac1bd8, type: 3}
 --- !u!54 &7643481182391241421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,3 +142,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 2500590450994664169}
+--- !u!135 &5547325619233456924
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205504764656836106}
+  m_Material: {fileID: 13400000, guid: 395d59d675afad64189678d7b187f7cb, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.09840783
+  m_Center: {x: 0, y: 0, z: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 168980468195378331}
   - component: {fileID: 2954569063269519083}
   - component: {fileID: 8658128243589791040}
-  - component: {fileID: -7314133812987908926}
+  - component: {fileID: -3475455854261715331}
   m_Layer: 0
   m_Name: Baseball
   m_TagString: Untagged
@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 5776841373773091756}
---- !u!64 &-7314133812987908926
-MeshCollider:
+--- !u!135 &-3475455854261715331
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -152,7 +152,7 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: 395d59d675afad64189678d7b187f7cb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -160,7 +160,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8279484070357006803, guid: 58221b671a0c3af4c86677e9fb49b604, type: 3}
+  serializedVersion: 3
+  m_Radius: 0.037999995
+  m_Center: {x: 0, y: 0, z: 0}

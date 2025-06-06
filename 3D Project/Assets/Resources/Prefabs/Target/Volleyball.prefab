@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8681152813048740830}
   - component: {fileID: 1207846855729108099}
   - component: {fileID: 8048297476558414858}
-  - component: {fileID: 4699381852160765964}
   - component: {fileID: 900245867301579497}
   - component: {fileID: 5060880266953385681}
   - component: {fileID: 8974564411584226002}
+  - component: {fileID: -8008261803983456771}
   m_Layer: 0
   m_Name: Volleyball
   m_TagString: Untagged
@@ -90,28 +90,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4699381852160765964
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6299163869262410616}
-  m_Material: {fileID: 13400000, guid: 395d59d675afad64189678d7b187f7cb, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7605077625669472967, guid: eaf91f38db66fc6439ff7704ed985e6c, type: 3}
 --- !u!54 &900245867301579497
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,3 +142,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 8681152813048740830}
+--- !u!135 &-8008261803983456771
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299163869262410616}
+  m_Material: {fileID: 13400000, guid: 395d59d675afad64189678d7b187f7cb, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.099999994
+  m_Center: {x: 0, y: 0, z: 0}
