@@ -43,6 +43,8 @@ public class ExperimentController : MonoBehaviour
     private Vector3 offset;
     private Vector3 newPos;
 
+    private Vector3 selectedTargetPos = new Vector3(500, 25, 525);
+    private Vector3 earthTargetPos = new Vector3(-2500, 58, 525);
 
     private void SetPlanet()
     {
@@ -75,11 +77,11 @@ public class ExperimentController : MonoBehaviour
 
     #region Target
 
-    private void CreateTarget()
+    private void CreateTarget(Vector3 vec)
     {
         int num = Random.Range(0, 5);
         GameObject target = Instantiate(targets[num]);
-        target.GetComponent<TargetView>().SetOriginPos(new Vector3(500, 25, 525));
+        target.GetComponent<TargetView>().SetOriginPos(vec);
     }
     #endregion
 
@@ -96,7 +98,8 @@ public class ExperimentController : MonoBehaviour
         SetExperiment();
         SelectExperiment(ExperimentType.freeFall);
 
-        CreateTarget();
+        CreateTarget(selectedTargetPos);
+        CreateTarget(earthTargetPos);
 
         SetPlanet();
     }
