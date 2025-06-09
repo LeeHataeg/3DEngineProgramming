@@ -2,24 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum PlanetType
-{
-    Mercury,
-    Venus,
-    Earth,
-    Mars,
-    Jupiter,
-    Saturn,
-    Uranus,
-    Neptune,
-    Others
-}
+
 
 [System.Serializable]
 public class PlanetInfo
 {
     public PlanetType Planet;
-    public string PlanetName;   // ? �ѱ� �̸�?
+    public string PlanetName;   // 행성 이름
 
     // For Rotate
     public double distance; // From Sundd

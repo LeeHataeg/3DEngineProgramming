@@ -1,21 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Define
+#region Enum
+public enum ExperimentType
 {
-    #region Enum
-    public enum test
-    {
-        None = 0,
-        Job = 1
-    }
-    #endregion
-
-    #region Struct
-    #endregion
-
-    #region Class
-    
-    #endregion
-
-
+    freeFall,   // 자유 낙하 운동
+    parabola    // 포물선 운동
 }
+public enum TargetType
+{
+    Baseball,
+    Basketball,
+    Football,
+    Soccer,
+    Volleyball
+}
+public enum PlanetType
+{
+    Mercury,
+    Venus,
+    Earth,
+    Mars,
+    Jupiter,
+    Saturn,
+    Uranus,
+    Neptune,
+    Others
+}
+#endregion
+

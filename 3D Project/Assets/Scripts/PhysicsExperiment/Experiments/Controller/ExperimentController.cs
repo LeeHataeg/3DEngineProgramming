@@ -4,24 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
-public enum ExperimentType
-{
-    freeFall,   // 자유 낙하 운동
-    parabola    // 포물선 운동
-}
 
-public enum TargetType
-{
-    Baseball,
-    Basketball,
-    Football,
-    Soccer,
-    Volleyball
-}
 
 public class ExperimentController : MonoBehaviour
 {
-    public static ExperimentController Instance;
     private float time = 0f;
     [SerializeField]private GameObject[] targets;
 
@@ -37,6 +23,9 @@ public class ExperimentController : MonoBehaviour
     [SerializeField] private PlanetEnvironmentView environmentView;
     private TargetView targetView;
 
+    [Header("CONTROLLERS")]
+    [SerializeField] private ExperimentStatUIController statUIController;
+
     [Header("SETTING")]
 
     private float endY = 0.5f;
@@ -44,13 +33,33 @@ public class ExperimentController : MonoBehaviour
     private Vector3 newPos;
 
     private Vector3 selectedTargetPos = new Vector3(500, 25, 525);
-    private Vector3 earthTargetPos = new Vector3(-2500, 58, 525);
+    private Vector3 earthTargetPos = new Vector3(-2500, 25, 525);
+
+    private Vector3 earthGravity = new Vector3(0, -9.81f, 0);
+
+    // TODO - 이걸 스크립트 상에서 오브젝트 크기 탐지하여 설정하도록?
+    // 터미널 속도값들(m/s)
+    // 표면적, 질량, 반경에 영향을 받는다.
+    private readonly Dictionary<TargetType, float> desiredVt =
+        new Dictionary<TargetType, float>
+        {
+            [TargetType.Baseball] = 33f,
+            [TargetType.Basketball] = 21f,
+            [TargetType.Football] = 19f,
+            [TargetType.Soccer] = 19f,
+            [TargetType.Volleyball] = 16f
+        };
+
 
     private void SetPlanet()
     {
-        curExperiment.SetPlanetData(GameManager.Instance.SceneChangeManager.PlanetInfo);
-        type = GameManager.Instance.SceneChangeManager.PlanetInfo.Planet;
+        PlanetInfo info = GameManager.Instance.SceneChangeManager.PlanetInfo;
+        curExperiment.SetPlanetData(info);
+
+        type = info.Planet;
         environmentView.LoadEnvironment(type);
+
+        statUIController.SetNameText(info.PlanetName);
     }
 
     private void SetExperiment()
@@ -58,8 +67,7 @@ public class ExperimentController : MonoBehaviour
         // 실험들 초기화
         freeFall = new FreeFallExperiment();
         parabola = new ParabolaExperiment();
-        // temp : 초기 힘 외부 입력 -> 앵그리버드처럼? 드래그로?
-        parabola.SetExeternalForce(new Vector3(5000f, 5000f, 0f));
+        // TODO - 포물선 운동 힘 세팅하기
     }
 
     public void SelectExperiment(ExperimentType eType)
@@ -77,29 +85,46 @@ public class ExperimentController : MonoBehaviour
 
     #region Target
 
-    private void CreateTarget(Vector3 vec)
+    private void CreateTarget(Vector3 startPos, int num)
     {
-        int num = Random.Range(0, 5);
         GameObject target = Instantiate(targets[num]);
-        target.GetComponent<TargetView>().SetOriginPos(vec);
+        target.GetComponent<TargetView>().SetOriginPos(startPos);
+
+        Rigidbody rb = target.GetComponent<Rigidbody>();
+
+        // 3. 낙하 종단 속도 설정
+        TargetType type = (TargetType)num;
+        float vt = desiredVt[type];
+
+        float drag = rb.mass * earthGravity.magnitude / vt;
+        rb.linearDamping = drag;
+
+        // TODO - 변경에 취약, 따로 bool이나 earth인지 experiment인지를 파라미터로 받는 것도 고려
+        if (startPos.x < 0)  // 일단 배치 상 Terrain의 x좌표는 -2000 ~ -3000이라... 지구 Terrain
+        {
+            // 1. rb useGravity false
+            rb.useGravity = false;
+
+            // 2. constForce에 중력 할당.
+            ConstantForce con = target.GetComponent<ConstantForce>();
+            con.force = earthGravity * rb.mass;
+            statUIController.SetTargets(rb, false);
+        }
+        else
+        {
+            statUIController.SetTargets(rb, true);
+        }
     }
     #endregion
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(Instance);
-    }
 
     void Start()
     {
         SetExperiment();
         SelectExperiment(ExperimentType.freeFall);
 
-        CreateTarget(selectedTargetPos);
-        CreateTarget(earthTargetPos);
+        int num = Random.Range(0, 5);
+        CreateTarget(selectedTargetPos, num);
+        CreateTarget(earthTargetPos, num);
 
         SetPlanet();
     }
