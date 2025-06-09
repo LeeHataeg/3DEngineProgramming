@@ -7,6 +7,4 @@ public interface IExperiment
     Vector3 StartPos { get; }
 
     public void SetPlanetData(PlanetInfo type);
-    Vector3 UpdatePhysics(float dt);
-    Vector3 CurrentPosition { get; }
 }

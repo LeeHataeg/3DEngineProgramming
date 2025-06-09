@@ -39,29 +39,4 @@ public class ParabolaExperiment : BaseExperiment
         gravity = new Vector3(0f, type.GravityAccel * (-1), 0f);
         airDense = type.AirDensity;
     }
-
-    public void SetExeternalForce(Vector3 force)
-    {
-        externalForce = force;
-    }
-    
-    public override Vector3 UpdatePhysics(float deltaTime)
-    {
-        changingFactorsInAccel = (airDense * DragCoefficient * CrossSection
-                            * velocity.magnitude * velocity) / (2f * mass);
-
-        accel = gravity + (-1)* changingFactorsInAccel;
-
-        if (!isApplied)
-        {
-            accel += (externalForce / mass);
-            isApplied = true;
-        }
-
-        velocity += accel * deltaTime;
-
-        position += velocity * deltaTime;
-
-        return position;
-    }
 }

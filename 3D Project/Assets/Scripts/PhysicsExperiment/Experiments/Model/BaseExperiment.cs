@@ -17,8 +17,5 @@ public abstract class BaseExperiment : IExperiment
 
     public Vector3 CurrentPosition => pos;
 
-    
-
     public abstract void SetPlanetData(PlanetInfo type);
-    public abstract Vector3 UpdatePhysics(float dt);
 }
