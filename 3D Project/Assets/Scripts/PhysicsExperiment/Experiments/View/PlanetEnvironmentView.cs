@@ -11,7 +11,7 @@ public class PlanetEnvironmentView : MonoBehaviour
     {
         // TODO - LoadScene? In here?
         //SetEnvironment(type);
-        GameObject tr = (GameObject)Resources.Load("Terrains/Terrain_Mercury");
+        GameObject tr = (GameObject)Resources.Load("Prefabs/Terrains/Terrain_Venus");
         Instantiate(tr);
     }
 
