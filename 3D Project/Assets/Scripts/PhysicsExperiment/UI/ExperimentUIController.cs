@@ -1,18 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ExperimentUIController : MonoBehaviour
 {
-    public void OnPlayClick()
-    {
-        Time.timeScale = 1f;
-    }
-
-    public void OnPauseClick()
-    {
-        Time.timeScale = 0f;
-    }
-
+    #region Buttons
     public void OnStopClick()
     {
         Time.timeScale = 0f;
@@ -29,4 +21,5 @@ public class ExperimentUIController : MonoBehaviour
         GameManager.Instance.SceneChangeManager.SetMainScene();
         Time.timeScale = 1f;
     }
+    #endregion
 }
