@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3267523361747404525}
   - component: {fileID: 7979349899470348502}
   - component: {fileID: 7048849327440486436}
-  - component: {fileID: 7036014650072601337}
   - component: {fileID: -4825529009166908068}
   m_Layer: 0
   m_Name: Basketball
@@ -129,19 +128,6 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &7036014650072601337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404545700426073585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c48daf97f65554245a35b6ff09f116e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 8380842513349305306}
 --- !u!135 &-4825529009166908068
 SphereCollider:
   m_ObjectHideFlags: 0

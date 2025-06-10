@@ -8,9 +8,9 @@ public abstract class BaseExperiment : IExperiment
     public ExperimentType EType => experimentType;
 
     // 시작 위치
-    protected Vector3 startPos;
+    protected Vector3 leftStartPos;
 
-    public Vector3 StartPos => startPos;
+    protected Vector3 rightStartPos;
 
     // 현재 위치
     private Vector3 pos;

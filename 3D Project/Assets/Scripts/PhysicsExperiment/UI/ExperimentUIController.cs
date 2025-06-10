@@ -4,15 +4,18 @@ using UnityEngine.UI;
 
 public class ExperimentUIController : MonoBehaviour
 {
+    [SerializeField] ExperimentController con;
+
     #region Buttons
     public void OnStopClick()
     {
         Time.timeScale = 0f;
-        GameManager.Instance.SceneChangeManager.SetPhysicsScene();
+        con.ResetTarget();
     }
+
     public void OnReplayClick()
     {
-        GameManager.Instance.SceneChangeManager.SetPhysicsScene();
+        con.ResetTarget();
         Time.timeScale = 1f;
     }
 

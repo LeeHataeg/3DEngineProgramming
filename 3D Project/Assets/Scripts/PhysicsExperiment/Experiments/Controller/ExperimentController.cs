@@ -4,38 +4,31 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
-
-
 public class ExperimentController : MonoBehaviour
 {
-    private float time = 0f;
     [SerializeField]private GameObject[] targets;
 
     [Header("MODELS")]
     [SerializeField] private PlanetInfoSO planetSO;
 
-    private IExperiment curExperiment;
+    public IExperiment curExperiment;
     private PlanetType type;
     private FreeFallExperiment freeFall;
-    private ParabolaExperiment parabola;
 
     [Header("VIEWS")]
     [SerializeField] private PlanetEnvironmentView environmentView;
-    private TargetView targetView;
 
     [Header("CONTROLLERS")]
     [SerializeField] private ExperimentStatUIController statUIController;
 
-    [Header("SETTING")]
-
-    private float endY = 0.5f;
-    private Vector3 offset;
-    private Vector3 newPos;
-
+    [Header("SETTING_Freefall")]
     private Vector3 selectedTargetPos = new Vector3(500, 25, 525);
     private Vector3 earthTargetPos = new Vector3(-2500, 25, 525);
 
     private Vector3 earthGravity = new Vector3(0, -9.81f, 0);
+
+    private GameObject leftObj;
+    private GameObject rightObj;
 
     // TODO - 이걸 스크립트 상에서 오브젝트 크기 탐지하여 설정하도록?
     // 터미널 속도값들(m/s)
@@ -66,7 +59,6 @@ public class ExperimentController : MonoBehaviour
     {
         // 실험들 초기화
         freeFall = new FreeFallExperiment();
-        parabola = new ParabolaExperiment();
         // TODO - 포물선 운동 힘 세팅하기
     }
 
@@ -88,7 +80,7 @@ public class ExperimentController : MonoBehaviour
     private void CreateTarget(Vector3 startPos, int num)
     {
         GameObject target = Instantiate(targets[num]);
-        target.GetComponent<TargetView>().SetOriginPos(startPos);
+        target.transform.position = startPos;
 
         Rigidbody rb = target.GetComponent<Rigidbody>();
 
@@ -109,11 +101,23 @@ public class ExperimentController : MonoBehaviour
             ConstantForce con = target.GetComponent<ConstantForce>();
             con.force = earthGravity * rb.mass;
             statUIController.SetTargets(rb, false);
+            leftObj = target;
         }
         else
         {
             statUIController.SetTargets(rb, true);
+            rightObj = target;
         }
+    }
+
+    public void ResetTarget()
+    {
+        Destroy(leftObj);
+        Destroy(rightObj);
+
+        int num = Random.Range(0, 5);
+        CreateTarget(selectedTargetPos, num);
+        CreateTarget(earthTargetPos, num);
     }
     #endregion
 

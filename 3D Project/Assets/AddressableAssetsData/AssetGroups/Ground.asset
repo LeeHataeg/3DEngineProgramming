@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Ground
+  m_EditorClassIdentifier: 
+  m_GroupName: Ground
+  m_GUID: f26f480154f09f640a888aa78dc01ce4
+  m_SerializeEntries:
+  - m_GUID: 803c9693dadca0948aec4ca7463365f6
+    m_Address: Terrain_Other.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ff9bb55e6ba4a0249b9d8a0f68443bf5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b100707f7eabe764f975a55638d696da, type: 2}
+    - {fileID: 11400000, guid: cd4ccd8621a47b248a0715c27542c74c, type: 2}

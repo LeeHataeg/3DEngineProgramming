@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6121985977737138107}
   - component: {fileID: 4226373086649748246}
   - component: {fileID: 6620394611766532775}
-  - component: {fileID: 3556563077827526976}
   - component: {fileID: 4850758107245408817}
   m_Layer: 0
   m_Name: Football
@@ -129,19 +128,6 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &3556563077827526976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2957409821077707724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c48daf97f65554245a35b6ff09f116e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 2349191157948690148}
 --- !u!136 &4850758107245408817
 CapsuleCollider:
   m_ObjectHideFlags: 0

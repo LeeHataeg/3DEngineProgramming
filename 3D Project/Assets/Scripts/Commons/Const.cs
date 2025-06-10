@@ -8,6 +8,10 @@ public abstract class Const
     #endregion
 
     #region Prefabs
-    public const string Prefabs_PhysicsGround = "Prefabs/Ground";
+    public const string Prefabs_PhysicsGround = "Terrain_Other.prefab";
+    #endregion
+
+    #region SO
+    public const string SO_PlanetInfo = "SolarSystemInfoSO";
     #endregion
 }
