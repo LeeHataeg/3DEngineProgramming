@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Ground
   m_GUID: f26f480154f09f640a888aa78dc01ce4
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 803c9693dadca0948aec4ca7463365f6
+    m_Address: Terrain_Other
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ground
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ff9bb55e6ba4a0249b9d8a0f68443bf5, type: 2}
   m_SchemaSet:
