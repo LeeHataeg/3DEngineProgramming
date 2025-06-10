@@ -26,14 +26,14 @@ public class CameraMovement : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
-        // 입력을 GetAxisRaw로 바꾸기 (시간 정지에 무관)
+        // 입력을 GetAxisRaw로 바꾸기
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
         Vector3 move = (forward * v + right * h) * moveSpeed * Time.unscaledDeltaTime;
         transform.position += move;
 
-        // 마우스 휠도 시간 무관하게 처리됨
+        // 마우스 휠을 시간 무관하게 처리
         float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
         Vector3 zoom = transform.position + transform.forward * scroll * zoomSpeed * Time.unscaledDeltaTime;
 
