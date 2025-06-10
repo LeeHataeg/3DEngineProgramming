@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5132226074641011832}
   - component: {fileID: 7643481182391241421}
   - component: {fileID: 1747351117402041066}
-  - component: {fileID: 2886171967364816818}
   - component: {fileID: 5547325619233456924}
   m_Layer: 0
   m_Name: Soccer
@@ -129,19 +128,6 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &2886171967364816818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6205504764656836106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c48daf97f65554245a35b6ff09f116e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 2500590450994664169}
 --- !u!135 &5547325619233456924
 SphereCollider:
   m_ObjectHideFlags: 0

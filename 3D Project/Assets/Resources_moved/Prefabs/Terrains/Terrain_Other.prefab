@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5329614580245383395}
   - component: {fileID: 6381695799127544466}
   m_Layer: 0
-  m_Name: Terrain_Venus
+  m_Name: Terrain_Other
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

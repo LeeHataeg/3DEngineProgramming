@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 6a04fc02a98cf9b458f1e4c34833e01c
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 4b254ff01ad3cedc8680be2a8cc4b190
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -60,7 +60,9 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: e1e89d1cf41a9fa438f10fc03c945009, type: 2}
+  - {fileID: 11400000, guid: f2e205a596cf7ce449f6f474c610d6a1, type: 2}
   - {fileID: 11400000, guid: e4f4c82303882e0419cf8991db7b31b8, type: 2}
+  - {fileID: 11400000, guid: 827751e4a5f56f0498aa868e821f7754, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -102,6 +104,7 @@ MonoBehaviour:
     - default
     - Ground
     - Skybox
+    - SO
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: c55fb5e03c9c23540a356334d1bf09cb, type: 2}

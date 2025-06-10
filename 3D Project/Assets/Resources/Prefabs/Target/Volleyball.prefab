@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8048297476558414858}
   - component: {fileID: 900245867301579497}
   - component: {fileID: 5060880266953385681}
-  - component: {fileID: 8974564411584226002}
   - component: {fileID: -8008261803983456771}
   m_Layer: 0
   m_Name: Volleyball
@@ -129,19 +128,6 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &8974564411584226002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6299163869262410616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c48daf97f65554245a35b6ff09f116e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 8681152813048740830}
 --- !u!135 &-8008261803983456771
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class ExperimentController : MonoBehaviour
 {
-    private float time = 0f;
     [SerializeField]private GameObject[] targets;
 
     [Header("MODELS")]
@@ -15,7 +14,6 @@ public class ExperimentController : MonoBehaviour
     public IExperiment curExperiment;
     private PlanetType type;
     private FreeFallExperiment freeFall;
-    private ParabolaExperiment parabola;
 
     [Header("VIEWS")]
     [SerializeField] private PlanetEnvironmentView environmentView;
@@ -28,12 +26,6 @@ public class ExperimentController : MonoBehaviour
     private Vector3 earthTargetPos = new Vector3(-2500, 25, 525);
 
     private Vector3 earthGravity = new Vector3(0, -9.81f, 0);
-
-    [Header("SETTING_Parabola")]
-    private Vector3 force = new Vector3(0, 0, 0);
-
-    private Vector3 leftStartPos = new Vector3(0, 0, 0);
-    private Vector3 rightStartPos = new Vector3(0, 0, 0);
 
     private GameObject leftObj;
     private GameObject rightObj;
@@ -67,7 +59,6 @@ public class ExperimentController : MonoBehaviour
     {
         // 실험들 초기화
         freeFall = new FreeFallExperiment();
-        parabola = new ParabolaExperiment(leftStartPos, rightStartPos);
         // TODO - 포물선 운동 힘 세팅하기
     }
 
@@ -89,7 +80,7 @@ public class ExperimentController : MonoBehaviour
     private void CreateTarget(Vector3 startPos, int num)
     {
         GameObject target = Instantiate(targets[num]);
-        target.GetComponent<TargetView>().SetOriginPos(startPos);
+        target.transform.position = startPos;
 
         Rigidbody rb = target.GetComponent<Rigidbody>();
 
