@@ -16,10 +16,9 @@ MonoBehaviour:
   m_GUID: 8385ac54ecf494446866829e387bc1e8
   m_SerializeEntries:
   - m_GUID: 6795e778534f6a24bb0712928cbb73ed
-    m_Address: SolarSystemInfoSO
+    m_Address: SolarSystemInfoSO.asset
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - SO
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ff9bb55e6ba4a0249b9d8a0f68443bf5, type: 2}

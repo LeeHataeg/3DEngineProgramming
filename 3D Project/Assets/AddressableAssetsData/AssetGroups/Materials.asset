@@ -14,55 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Materials
   m_GUID: a54a595c059b88548ac99fd77c75f1db
-  m_SerializeEntries:
-  - m_GUID: 264729e8473a9d94b9f8a881b886bceb
-    m_Address: Skybox_Uranus
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skybox
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 30c973b3620927e42a7675785da43d8b
-    m_Address: Skybox_Neptune
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skybox
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 705beb429c7fd3347864695eeabd6adf
-    m_Address: Skybox_Earth
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skybox
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 95a6b59d207284344803d6ce5923086a
-    m_Address: Skybox_Saturn
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skybox
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bcf995f814a34fb45aeae4c2fdee896a
-    m_Address: Skybox_Mercury
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skybox
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: be01bdd5af1b4174cbade8babaaf5f51
-    m_Address: Skybox_Jupiter
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skybox
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c140309294b1b214b877595d6629d605
-    m_Address: Skybox_Mars
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skybox
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e5ec7c84f4e65ea479feb2b44be2a38c
-    m_Address: Skybox_Venus
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skybox
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ff9bb55e6ba4a0249b9d8a0f68443bf5, type: 2}
   m_SchemaSet:

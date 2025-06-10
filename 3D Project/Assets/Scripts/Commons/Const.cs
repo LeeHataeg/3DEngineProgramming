@@ -8,7 +8,7 @@ public abstract class Const
     #endregion
 
     #region Prefabs
-    public const string Prefabs_PhysicsGround = "Terrain_Other.prefab";
+    public const string Prefabs_PhysicsGround = "Terrain_Other";
     #endregion
 
     #region SO
