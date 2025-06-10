@@ -27,11 +27,12 @@ public class ParabolaExperiment : BaseExperiment
     private Vector3 position = Vector3.zero;
     
 
-    public ParabolaExperiment()
+    public ParabolaExperiment(Vector3 leftStartPos,Vector3 rightStartPos)
     {
         experimentType = ExperimentType.parabola;
         // temp
-        startPos = new Vector3(-9.5f, 0.5f, 0);
+        this.rightStartPos = rightStartPos;
+        this.leftStartPos = leftStartPos;
     }
 
     public override void SetPlanetData(PlanetInfo type)

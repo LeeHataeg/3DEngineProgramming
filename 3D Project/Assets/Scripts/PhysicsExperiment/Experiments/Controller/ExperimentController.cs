@@ -19,21 +19,21 @@ public class ExperimentController : MonoBehaviour
 
     [Header("VIEWS")]
     [SerializeField] private PlanetEnvironmentView environmentView;
-    private TargetView targetView;
 
     [Header("CONTROLLERS")]
     [SerializeField] private ExperimentStatUIController statUIController;
 
-    [Header("SETTING")]
-
-    private float endY = 0.5f;
-    private Vector3 offset;
-    private Vector3 newPos;
-
+    [Header("SETTING_Freefall")]
     private Vector3 selectedTargetPos = new Vector3(500, 25, 525);
     private Vector3 earthTargetPos = new Vector3(-2500, 25, 525);
 
     private Vector3 earthGravity = new Vector3(0, -9.81f, 0);
+
+    [Header("SETTING_Parabola")]
+    private Vector3 force = new Vector3(0, 0, 0);
+
+    private Vector3 leftStartPos = new Vector3(0, 0, 0);
+    private Vector3 rightStartPos = new Vector3(0, 0, 0);
 
     private GameObject leftObj;
     private GameObject rightObj;
@@ -67,7 +67,7 @@ public class ExperimentController : MonoBehaviour
     {
         // 실험들 초기화
         freeFall = new FreeFallExperiment();
-        parabola = new ParabolaExperiment();
+        parabola = new ParabolaExperiment(leftStartPos, rightStartPos);
         // TODO - 포물선 운동 힘 세팅하기
     }
 

@@ -25,7 +25,6 @@ public class FreeFallExperiment : BaseExperiment
     public FreeFallExperiment()
     {
         experimentType = ExperimentType.freeFall;
-        startPos = new Vector3(0, startY * 3f, 0);
     }
 
     public override void SetPlanetData(PlanetInfo type)

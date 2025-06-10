@@ -24,5 +24,10 @@ public class ExperimentUIController : MonoBehaviour
         GameManager.Instance.SceneChangeManager.SetMainScene();
         Time.timeScale = 1f;
     }
+
+    public void OnChangePhysics()
+    {
+        //
+    }
     #endregion
 }
