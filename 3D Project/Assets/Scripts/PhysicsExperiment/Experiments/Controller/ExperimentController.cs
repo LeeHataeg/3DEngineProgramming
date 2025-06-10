@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
-
-
 public class ExperimentController : MonoBehaviour
 {
     private float time = 0f;
@@ -14,7 +12,7 @@ public class ExperimentController : MonoBehaviour
     [Header("MODELS")]
     [SerializeField] private PlanetInfoSO planetSO;
 
-    private IExperiment curExperiment;
+    public IExperiment curExperiment;
     private PlanetType type;
     private FreeFallExperiment freeFall;
     private ParabolaExperiment parabola;
@@ -36,6 +34,9 @@ public class ExperimentController : MonoBehaviour
     private Vector3 earthTargetPos = new Vector3(-2500, 25, 525);
 
     private Vector3 earthGravity = new Vector3(0, -9.81f, 0);
+
+    private GameObject leftObj;
+    private GameObject rightObj;
 
     // TODO - 이걸 스크립트 상에서 오브젝트 크기 탐지하여 설정하도록?
     // 터미널 속도값들(m/s)
@@ -109,11 +110,23 @@ public class ExperimentController : MonoBehaviour
             ConstantForce con = target.GetComponent<ConstantForce>();
             con.force = earthGravity * rb.mass;
             statUIController.SetTargets(rb, false);
+            leftObj = target;
         }
         else
         {
             statUIController.SetTargets(rb, true);
+            rightObj = target;
         }
+    }
+
+    public void ResetTarget()
+    {
+        Destroy(leftObj);
+        Destroy(rightObj);
+
+        int num = Random.Range(0, 5);
+        CreateTarget(selectedTargetPos, num);
+        CreateTarget(earthTargetPos, num);
     }
     #endregion
 

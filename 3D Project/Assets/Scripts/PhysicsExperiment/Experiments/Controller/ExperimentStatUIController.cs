@@ -6,14 +6,15 @@ public class ExperimentStatUIController : MonoBehaviour
 {
 
     [Header("Targets (assign in Inspector)")]
-    [Tooltip("왼쪽 Rigidbody")]
+    [Tooltip("왼쪽 Target Rigidbody")]
     private Rigidbody leftTargetRb;
 
-    [Tooltip("오른쪽 Rigidbody")]
+    [Tooltip("오른쪽 Target Rigidbody")]
     private Rigidbody rightTargetRb;
 
-    [Header("UI Elements (assign in Inspector)")]
-    [SerializeField] private TextMeshProUGUI leftVelocityText;        // TMPro ��� �� TextMeshProUGUI
+    [Header("Controll될 UI들")]
+    [SerializeField] private TextMeshProUGUI leftVelocityText;
+
     [SerializeField] private TextMeshProUGUI rightVelocityText;
     [SerializeField] private TextMeshProUGUI rightPlanetNameText;
 
@@ -38,10 +39,10 @@ public class ExperimentStatUIController : MonoBehaviour
     {
         // 왼쪽 속도 측정
         if (leftTargetRb != null)
-            leftVelocityText.text = $"{Mathf.Abs(leftTargetRb.linearVelocity.y):F2} m/s";
+            leftVelocityText.text = $"{(leftTargetRb.linearVelocity.magnitude):F2} m/s";
 
         // 오른쪽 속도 측정
         if (rightTargetRb != null)
-            rightVelocityText.text = $"{Mathf.Abs(rightTargetRb.linearVelocity.magnitude):F2} m/s";
+            rightVelocityText.text = $"{(rightTargetRb.linearVelocity.magnitude):F2} m/s";
     }
 }
