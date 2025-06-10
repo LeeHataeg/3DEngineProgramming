@@ -100,13 +100,15 @@ public class ExperimentController : MonoBehaviour
             // 2. constForce에 중력 할당.
             ConstantForce con = target.GetComponent<ConstantForce>();
             con.force = earthGravity * rb.mass;
-            statUIController.SetTargets(rb, false);
+            statUIController.SetTargetsRigidbody(rb, true);
             leftObj = target;
+            target.name = "LeftTarget";
         }
         else
         {
-            statUIController.SetTargets(rb, true);
+            statUIController.SetTargetsRigidbody(rb, false);
             rightObj = target;
+            target.name = "RightTarget";
         }
     }
 

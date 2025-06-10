@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlanetEnvironmentView : MonoBehaviour
 {
-    [Header("OBJECTS_IN_SCENE")]
-    [SerializeField] Renderer[] grounds;
-
     public void LoadEnvironment(PlanetType type)
     {
         SetEnvironment(type);
