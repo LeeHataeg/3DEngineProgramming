@@ -13,15 +13,20 @@
 <br>
 
 # 프로젝트 소개
+- 본 프로젝트는 태양계 행성의 공자전 움직임과 각 행성 별 물체 움직임을 과학적 법칙을 기반으로 구현하고자 하였음.
+
 <br>
+
 ### 태양계 공자전씬
 
 https://github.com/user-attachments/assets/9b235b6d-d58b-4270-af2c-ad724c72cb21
+
 <br>
 
 ### 물리 실험 씬
 
 https://github.com/user-attachments/assets/e95f61c1-861f-4816-bd02-3411cc8a860f
+
 <br>
 <br>
 
